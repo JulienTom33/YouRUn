@@ -1,0 +1,673 @@
+// ***** VARIABLES DE COULEURS *****
+
+$bg1: #ccdfe9;
+$bg2: #fff;
+$title-color: #900c3f;
+$subtitle-color: #585555;
+$hover: #2f4f4f;
+
+
+// ***** HEADER *****
+
+.header {
+  background-image: url(/public/ressources/landscape-78058-resize.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 20vh;
+}
+
+
+// ***** NAVBAR *****
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+//logo YouRun
+  .menu__logo h1 {
+    font-family: "Robo Sapien", sans serif;
+    color: $title-color;
+    font-size: 2em;
+  }
+
+//une fois l'utilisateur connecté
+  .menu__profil {
+    margin-right: 2em;
+    color: $title-color;
+    & a {
+      color: rgba(44, 83, 107, 0.7);
+    }
+  }
+}
+
+// ***** MENU BURGER *****
+
+.menu__burger {
+  background: rgba(44, 83, 107, 0.7);
+  opacity: 1;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+
+  // les lignes du burger
+  span,
+  span::before,
+  span::after {
+    background: rgba(34, 42, 47, 1);
+    border-radius: 5px;
+    display: block;
+    height: 2px;
+    opacity: 1;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+  }
+  
+  span::before,
+  span::after {
+    content: "";
+  }
+
+  // Ligne du haut
+  span::before {
+    left: 0px;
+    top: 6px;
+    width: 20px;
+  }
+
+  // Ligne du milieu
+  span {
+    right: 10px;
+    top: 13px;
+    width: 20px;
+  }
+
+  // Ligne du bas
+  span::after {
+    left: 0px;
+    top: 12px;
+    width: 20px;
+  }
+
+  // Animation du menu burger
+  &.close {
+    // Ligne du haut
+    span::before {
+      top: 0px;
+      transform: rotate(90deg);
+      width: 20px;
+    }
+
+    // Ligne du milieu
+    span {
+      transform: rotate(-45deg);
+      top: 18px;
+      width: 20px;
+    }
+
+    // Ligne du bas
+    span::after {
+      top: 0px;
+      left: 0;
+      transform: rotate(90deg);
+      opacity: 0;
+      width: 0;
+    }
+  }
+}
+
+// Apparition du menu déroulant au clic
+.menu {
+  z-index: 1;
+  min-width: 100%;
+  min-height: 40%;
+  position: fixed;
+  top: 0;
+  height: 0;
+  visibility: hidden;
+  opacity: 1;
+  text-align: center;
+  padding-top: 20px;
+  transition: all 0.3s ease-in-out;
+
+  &.overlay {
+    z-index: 1;
+    visibility: visible;
+    opacity: 1;
+    padding-top: 3em;
+    background-color: rgba(10, 10, 10, 0.5);
+  }
+
+  ul {
+    padding: 1em;
+  }
+
+  a {
+    color: rgba(243, 237, 237, 0.7);
+    font-weight: 900;
+    display: block;
+    text-align: center;
+    font-size: 1em;
+    padding: 0.4em;
+  }
+}
+
+// ***** HOME *****
+
+.home__presentation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3em 1em;
+}
+
+// phrase de présentation
+.home__consult {
+  width: 50%;
+  margin-right: 2em;
+}
+
+// widget météo
+.home__weather {
+  border: none;
+  border-radius: 5px;
+  background-color: $bg1;
+  text-align: right;
+  padding: 0.5em;
+
+  & h3 {
+    color: $title-color;
+  }
+
+  & p {
+    color: $hover;
+    font-size: 0.8em;
+    font-weight: 800;
+  }
+}
+
+// map
+.map {
+  height: 300px;
+  width: 600px;
+  margin: auto;
+  margin-top: 1.5em;
+}
+
+// affichage du rdv
+.home__date {
+  margin: 2em;
+  padding: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: $bg1;
+
+  & p {
+    font-weight: 600;
+  }
+}
+
+
+// ***** FOOTER *****
+
+.footer {
+  background-image: url(/public/ressources/footer-img-resize.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -10em;
+  left: 0;
+  right: 0;
+
+  .footer__social ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & li {
+      padding: 0.5em;
+    }
+
+    & i {
+      font-size: 2em;
+      color: $title-color;
+    }
+  }
+}
+
+
+// ***** BLOG *****
+
+.blog {
+  display: flex;
+  flex-wrap: wrap;
+
+  .blog__article {
+    border: none;
+    border-radius: 5px;
+    background-color: $bg1;
+    margin: auto;
+    padding: 1em;
+    margin: 2em;
+    overflow: auto;
+    height: 30vh;
+
+    & h3 {
+      padding-bottom: 0.5em;
+      color: $title-color;
+    }
+  }
+}
+
+
+// ***** REGISTRATION*****
+
+.registration {
+  margin: 1em auto;
+  background-color: $bg2;
+  border-radius: 5px;
+  width: 400px;
+  height: 600px;
+  box-shadow: 2px 10px 40px rgb(184, 184, 184);
+
+  & form {
+    padding: auto;
+  }
+
+  & input {
+    width: 80%;
+    height: 35px;
+    padding: 1em;
+    margin: 0.5em;
+    margin-left: 3em;
+    border-radius: 3px;
+    border: 1px solid $bg1;
+  }
+
+  & select {
+    width: 80%;
+    height: 35px;
+    padding: 0.5em;
+    margin: 0.5em;
+    margin-left: 3em;
+    border-radius: 3px;
+    border: 1px solid $bg1;
+  }
+
+  & textarea {
+    width: 80%;
+    padding: 1em;
+    margin: 0.5em;
+    margin-left: 3em;
+    border-radius: 3px;
+    border: 1px solid $bg1;
+  }
+
+  .registration__title {
+    text-align: center;
+    font-size: 2em;
+    padding: 0.5em;
+    font-weight: 700;
+    color: $title-color;
+  }
+
+  .registration__button {
+    display: block;
+    margin: auto;
+    margin-top: 0.2em;
+    text-align: center;
+    padding: 10px 30px 10px 30px;
+    border: 1px solid $bg1;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 90%;
+    font-size: 2em;
+    color: $title-color;
+    font-weight: 700;
+    transition: all 0.43s ease;
+  }
+
+  .registration__button:hover {
+    border: 1px solid $bg1;
+    background-color: $bg1;
+    color: $hover;
+    width: 50%;
+  }
+}
+
+// message d'erreur si champs non remplis
+.error {
+  text-align: center;
+  color: $title-color;
+  font-size: 2em;
+}
+
+// message si utilisateur enregistré
+.welcome {
+  text-align: center;
+  color: $hover;
+  font-size: 4em;
+}
+
+
+// ***** LOGIN *****
+
+.login {
+  margin: 1em auto;
+  background-color: $bg2;
+  border-radius: 5px;
+  width: 400px;
+  height: 250px;
+  box-shadow: 2px 10px 40px rgb(184, 184, 184);
+
+  & form {
+    padding: auto;
+  }
+
+  & input {
+    width: 80%;
+    height: 35px;
+    padding: 1em;
+    margin: 0.5em;
+    margin-left: 3em;
+    border-radius: 3px;
+    border: 1px solid $bg1;
+  }
+
+  .login__title {
+    text-align: center;
+    font-size: 2em;
+    padding: 0.5em;
+    font-weight: 700;
+    color: $title-color;
+  }
+
+  .login__button {
+    display: block;
+    margin: auto;
+    margin-top: 0.2em;
+    text-align: center;
+    padding: 10px 30px 10px 30px;
+    border: 1px solid $bg1;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 90%;
+    font-size: 2em;
+    color: $title-color;
+    font-weight: 700;
+    transition: all 0.43s ease;
+  }
+
+  .login__button:hover {
+    border: 1px solid $bg1;
+    background-color: $bg1;
+    color: $hover;
+    width: 50%;
+  }
+}
+
+// lien vers la page admin
+.adminPage {  
+  text-align: center;
+  color: $title-color;
+}
+
+
+// ***** ADMIN *****
+
+.admin {
+  margin: 1em auto;
+  background-color: $bg2;
+  border-radius: 5px;
+  width: 400px;
+  box-shadow: 2px 10px 40px rgb(184, 184, 184);
+
+  & p {
+    padding: 0.5em;
+  }
+
+  .admin__userinfo {
+    border: 1px solid $bg1;
+    border-radius: 3px;
+    padding: 0.5em;
+    margin: 0.5em;
+  }
+
+  .admin__title {
+    text-align: center;
+    font-size: 2em;
+    padding: 0.5em;
+    font-weight: 700;
+    color: $title-color;
+  }
+
+  .admin__button {
+    border: 1px solid $bg1;
+    border-radius: 3px;
+    width: 50%;
+    display: block;
+    margin: auto;
+    margin-top: 0.2em;
+    text-align: center;
+  }
+}
+
+// ***** FORUM *****
+
+
+.forum {
+  display: flex;
+  flex-wrap: wrap;
+
+  .forum__item {
+    border: none;
+    border-radius: 5px;
+    background-color: $bg1;
+    width: 80%;
+    padding: 0.5em;
+    margin: 0.5em;
+  }
+
+  .forum__adds {
+    display: flex;
+    margin: auto;
+  }
+
+  .forum__post {
+    border: 1px solid grey;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(243, 237, 237, 0.7);
+    padding: 0.5em;
+  }
+
+  & h3 {
+    color: $title-color;
+  }
+
+  & h4 {
+    padding: 0.1em;
+    color: $subtitle-color;
+  }
+
+  & p {
+    padding: 0.1em;
+  }
+
+  & a {
+    border: 1px solid $bg1;
+    border-radius: 3px;
+    text-align: center;
+    margin: 1em;
+    padding: 0.2em;
+  }
+}
+
+// ***** AJOUT CATEGORIE *****
+
+.category {
+  margin: 1em auto;
+  background-color: $bg2;
+  border-radius: 5px;
+  width: 400px;
+  height: 250px;
+  box-shadow: 2px 10px 40px rgb(184, 184, 184);
+
+  & form {
+    padding: auto;
+  }
+
+  & input {
+    width: 80%;
+    height: 35px;
+    padding: 1em;
+    margin: 0.5em;
+    margin-left: 3em;
+    border-radius: 3px;
+    border: 1px solid $bg1;
+  }
+
+  .category__title {
+    text-align: center;
+    font-size: 2em;
+    padding: 0.5em;
+    font-weight: 700;
+    color: $title-color;
+  }
+
+  .category__button {
+    display: block;
+    margin: auto;
+    margin-top: 0.2em;
+    text-align: center;
+    padding: 10px 30px 10px 30px;
+    border: 1px solid $bg1;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 90%;
+    font-size: 2em;
+    color: $title-color;
+    font-weight: 700;
+    transition: all 0.43s ease;
+  }
+
+  .category__button:hover {
+    border: 1px solid $bg1;
+    background-color: $bg1;
+    color: $hover;
+    width: 50%;
+  }
+}
+
+
+// ***** PROFIL *****
+
+.profil {
+  margin: 1em auto;
+  background-color: $bg2;
+  border-radius: 5px;
+  width: 400px;
+  height: 600px;
+  box-shadow: 2px 10px 40px rgb(184, 184, 184);
+
+  & form {
+    padding: auto;
+  }
+
+  & input {
+    width: 80%;
+    height: 35px;
+    padding: 1em;
+    margin: 0.5em;
+    margin-left: 3em;
+    border-radius: 3px;
+    border: 1px solid $bg1;
+  }
+
+  & textarea {
+    width: 80%;
+    padding: 1em;
+    margin: 0.5em;
+    margin-left: 3em;
+    border-radius: 3px;
+    border: 1px solid $bg1;
+  }
+
+  .profil__title {
+    text-align: center;
+    font-size: 2em;
+    padding: 0.5em;
+    font-weight: 700;
+    color: $title-color;
+  }
+
+  .profil__button {
+    display: block;
+    margin: auto;
+    margin-top: 0.2em;
+    text-align: center;
+    padding: 10px 30px 10px 30px;
+    border: 1px solid $bg1;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 90%;
+    font-size: 2em;
+    color: $title-color;
+    font-weight: 700;
+    transition: all 0.43s ease;
+  }
+
+  .profil__button:hover {
+    border: 1px solid $bg1;
+    background-color: $bg1;
+    color: $hover;
+    width: 50%;
+  }
+}
+
+
+/*MEDIA QUERIES*/
+
+/*PHONE*/
+@media screen and (min-width: 490px) {
+  nav,
+  header {
+    display: flex;
+  }
+
+  .map {
+    width: 70%;
+  }
+}
+
+/*TABLETTE*/
+@media screen and (max-width: 780px) {
+  nav,
+  header {
+    flex-wrap: wrap;
+  }
+}
+
+/*DESKTOP*/
+@media screen and (max-width: 1600px) {
+  nav,
+  header {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  header {
+    height: 100%;
+  }
+}
